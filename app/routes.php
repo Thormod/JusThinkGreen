@@ -11,9 +11,15 @@
 |
 */
 
-Route::get('/', function()
-{
-	return View::make('home');
-});
-
+Route::get('/','HomeController@home');
 Route::resource('publicaciones', 'ControlPublicaciones');
+//REGISTRO
+Route::get('registrar','UserController@create');
+Route::post('registrar','UserController@store');
+
+//LOGIN
+Route::get('login_index','UserController@login_index');
+Route::post('login','UserController@login');
+
+//LOGOUT
+Route::get('logout', 'UserController@logout');

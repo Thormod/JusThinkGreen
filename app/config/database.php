@@ -54,10 +54,10 @@ return array(
 
 		'mysql' => array(
 			'driver'    => 'mysql',
-			'host'      => 'localhost',
-			'database'  => 'JusThinkGreen',
-			'username'  => 'root',
-			'password'  => '',
+			'host'      => '23.229.192.230',
+			'database'  => 'just',
+			'username'  => 'thor',
+			'password'  => '123asda1A1',
 			'charset'   => 'utf8',
 			'collation' => 'utf8_unicode_ci',
 			'prefix'    => '',
