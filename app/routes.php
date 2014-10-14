@@ -16,4 +16,4 @@ Route::get('/', function()
 	return View::make('home');
 });
 
-Route::resource('publicaciones', 'ControlPublicaciones');
+Route::resource('post', 'PostController');
