@@ -12,14 +12,18 @@ class UserController extends BaseController{
 		{	
 			$user_validator = User::where('email',$user_data['email'])->first();
 			Session::put('user_id',$user_validator['id']);
-			return Redirect::to('profile');
+			return Redirect::to('/');
 		}
 		else
 		{
-			return Redirect::to('/')->with('login_errors',true);
+			return Redirect::to('login_index')->with('success', 'Hay algún error en los datos');
 		}
 	}
-
+	public function logout(){
+		
+    	Auth::logout();
+    	return Redirect::to('/');
+	}
 	public function create()
 	{
 		return View::make('user.create')->with('tab','registrar');
@@ -31,7 +35,7 @@ class UserController extends BaseController{
 		$validation = Validator::make(Input::all(), User::$rules);
 		
 		if ($validation->fails()) {
-			return Redirect::to('registrar')->withInput()->withErrors($validation);		
+			return Redirect::to('registrar')->withInput()->withErrors($validation);
 		}
 
 		$user = new User(Input::all());
@@ -41,7 +45,9 @@ class UserController extends BaseController{
 	return Redirect::to('registrar')->with('success', 'Te has registrado exitosamente.');
 	}
 	public function login_index(){
+
 		return View::make('login', array('tab' => 'login') );
+
 	}
 
 }

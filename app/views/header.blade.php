@@ -8,15 +8,20 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="{{ URL::to('/') }}">JusThinkGreen</a>
+
         </div>
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li class="active"><a href="{{ URL::to('/') }}">Inicio</a></li>
+            <li><a href="{{ URL::to('/') }}">Inicio</a></li>
             <li><a href="about.html">Categorias</a></li>
             <li><a href="#works">Rankings</a></li>
             <li><a href="#works">Tienda</a></li>
+            @if (Auth::check())
+            <li><a href="#">{{ Auth::user()->username }}</a></li>
+            <li><a href="{{ URL::to('logout') }}">Cerrar Sesión</a></li>
+            @else
             <li><a href="{{ URL::to('login_index') }}">Iniciar Sesion</a></li>
+            @endif
           </ul>
         </div><!--/.nav-collapse -->
       </div>

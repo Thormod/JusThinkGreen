@@ -21,7 +21,7 @@
 			<div class="row">
 				<div class="col-lg-6 col-lg-offset-3">
 					<img src="assets/img/logo3.png">
-					<h3 style="text-transform: uppercase; margin-top: -10px;">¿No estás registrado?</h3>
+					<h3 style="text-transform: uppercase; margin-top: -5px;">¿No estás registrado?</h3>
 					<div class="enjoy-css" onclick="location.href='{{ URL::to('registrar') }}';">Registrate!</div>
 
 				</div>
