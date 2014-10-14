@@ -11,6 +11,7 @@
 |
 */
 
+
 Route::get('/','HomeController@home');
 Route::resource('publicaciones', 'ControlPublicaciones');
 //REGISTRO
@@ -23,3 +24,11 @@ Route::post('login','UserController@login');
 
 //LOGOUT
 Route::get('logout', 'UserController@logout');
+
+Route::get('/', function()
+{
+	return View::make('home');
+});
+
+Route::resource('post', 'PostController');
+>>>>>>> origin/master
