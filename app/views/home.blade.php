@@ -21,8 +21,12 @@
 			<div class="row">
 				<div class="col-lg-6 col-lg-offset-3">
 					<img src="assets/img/logo3.png">
+					 @if (Auth::check())
+					 <h3 style="text-transform: uppercase; margin-top: -5px;">Bienvenido <span style="color: #2B6B1C"> {{ Auth::user()->username }} </span></h3>
+					 @else
 					<h3 style="text-transform: uppercase; margin-top: -5px;">¿No estás registrado?</h3>
 					<div class="enjoy-css" onclick="location.href='{{ URL::to('registrar') }}';">Registrate!</div>
+					@endif
 
 				</div>
 			</div>

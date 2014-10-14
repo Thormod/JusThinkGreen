@@ -13,9 +13,9 @@
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
             <li><a href="{{ URL::to('/') }}">Inicio</a></li>
-            <li><a href="about.html">Categorias</a></li>
-            <li><a href="#works">Rankings</a></li>
-            <li><a href="#works">Tienda</a></li>
+            <li><a href="#">Categorias</a></li>
+            <li><a href="#">Rankings</a></li>
+            <li><a href="#">Tienda</a></li>
             @if (Auth::check())
             <li><a href="#">{{ Auth::user()->username }}</a></li>
             <li><a href="{{ URL::to('logout') }}">Cerrar Sesión</a></li>
