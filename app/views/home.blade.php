@@ -32,31 +32,75 @@
 			</div>
 	    </div> 
 	</div>
-	section id="works"></section>
-	<div class="container">
+	
+	<section id="works"></section>
+	<div class="posts-div">
+	<div class="container" style="padding-top: 30px;">
 		<div class="row centered mt mb">
-			<h1>My Portfolio</h1>
+			<h1 style="color: #000;">Mejores <span style="color: #2B6B1C"> PUBLICACIONES </span> </h1>
 			
 			<div class="col-lg-4 col-md-4 col-sm-4 gallery">
-				<a href="work.html"><img src="assets/img/portfolio/folio01.png" class="img-responsive"></a>
-			</div>
-			<div class="col-lg-4 col-md-4 col-sm-4 gallery">
-				<a href="work.html"><img src="assets/img/portfolio/folio02.png" class="img-responsive"></a>
-			</div>
-			<div class="col-lg-4 col-md-4 col-sm-4 gallery">
-				<a href="work.html"><img src="assets/img/portfolio/folio03.png" class="img-responsive"></a>
-			</div>
-			<div class="col-lg-4 col-md-4 col-sm-4 gallery">
-				<a href="work.html"><img src="assets/img/portfolio/folio04.png" class="img-responsive"></a>
-			</div>
-			<div class="col-lg-4 col-md-4 col-sm-4 gallery">
-				<a href="work.html"><img src="assets/img/portfolio/folio05.png" class="img-responsive"></a>
-			</div>
-			<div class="col-lg-4 col-md-4 col-sm-4 gallery">
-				<a href="work.html"><img src="assets/img/portfolio/folio06.png" class="img-responsive"></a>
-			</div>
-		</div><! --/row -->
-	</div><! --/container -->
+				<div class="box">
+				    <div class="cover left">
+				      <h1 class="title">Example Post Title <span style="color: #2B6B1C"> 1587589p </span></h1>
 
+				      <p class="intro">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium quis enim nam dolorem recusandae ducimus laudantium iure sint similique reiciendis quaerat dolorum cum aliquid officiis repudiandae in qui itaque maiores!</p>
+				      <div class="btn"><a href="#">Read more...</a></div>
+				    </div>
+				  </div>
+			</div>
+			<div class="col-lg-4 col-md-4 col-sm-4 gallery">
+				<div class="box">
+				    <div class="cover left">
+				     <h1 class="title">Example Post Title <span style="color: #2B6B1C"> 1587589p </span></h1>
+
+				      <p class="intro">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium quis enim nam dolorem recusandae ducimus laudantium iure sint similique reiciendis quaerat dolorum cum aliquid officiis repudiandae in qui itaque maiores!</p>
+				      <div class="btn"><a href="#">Read more...</a></div>
+				    </div>
+				  </div>
+			</div>
+			<div class="col-lg-4 col-md-4 col-sm-4 gallery">
+				<div class="box">
+				    <div class="cover left">
+				     <h1 class="title">Example Post Title <span style="color: #2B6B1C"> 1587589p </span></h1>
+
+				      <p class="intro">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium quis enim nam dolorem recusandae ducimus laudantium iure sint similique reiciendis quaerat dolorum cum aliquid officiis repudiandae in qui itaque maiores!</p>
+				      <div class="btn"><a href="#">Read more...</a></div>
+				    </div>
+				  </div>
+			</div>
+			<div class="col-lg-4 col-md-4 col-sm-4 gallery">
+				<div class="box">
+				    <div class="cover left">
+				    <h1 class="title">Example Post Title <span style="color: #2B6B1C"> 1587589p </span></h1>
+
+				      <p class="intro">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium quis enim nam dolorem recusandae ducimus laudantium iure sint similique reiciendis quaerat dolorum cum aliquid officiis repudiandae in qui itaque maiores!</p>
+				      <div class="btn"><a href="#">Read more...</a></div>
+				    </div>
+				  </div>
+			</div>
+			<div class="col-lg-4 col-md-4 col-sm-4 gallery">
+				<div class="box">
+				    <div class="cover left">
+				      <h1 class="title">Example Post Title <span style="color: #2B6B1C"> 1587589p </span></h1>
+
+				      <p class="intro">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium quis enim nam dolorem recusandae ducimus laudantium iure sint similique reiciendis quaerat dolorum cum aliquid officiis repudiandae in qui itaque maiores!</p>
+				      <div class="btn"><a href="#">Read more...</a></div>
+				    </div>
+				  </div>
+			</div>
+			<div class="col-lg-4 col-md-4 col-sm-4 gallery">
+				<div class="box">
+				    <div class="cover left">
+				     <h1 class="title">Example Post Title <span style="color: #2B6B1C"> 1587589p </span></h1>
+				      <p class="intro">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium quis enim nam dolorem recusandae ducimus laudantium iure sint similique reiciendis quaerat dolorum cum aliquid officiis repudiandae in qui itaque maiores!</p>
+				      <div class="btn"><a href="#">Read more...</a></div>
+				    </div>
+				  </div>
+			</div>
+		</div>
+	</div>
+	</div>
+	
 	</body>
 @endif

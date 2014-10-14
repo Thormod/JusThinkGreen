@@ -17,7 +17,14 @@
             <li><a href="#">Rankings</a></li>
             <li><a href="#">Tienda</a></li>
             @if (Auth::check())
-            <li><a href="#">{{ Auth::user()->username }}</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown">{{ Auth::user()->username }} <span class="caret"></span></a>
+              <ul class="dropdown-menu" role="menu">
+                <li><a href="#">Perfil</a></li>
+                <li><a href="#">Crear Post</a></li>
+                <li><a href="#">Calificar Post</a></li>
+              </ul>
+            </li>
             <li><a href="{{ URL::to('logout') }}">Cerrar Sesión</a></li>
             @else
             <li><a href="{{ URL::to('login_index') }}">Iniciar Sesion</a></li>
