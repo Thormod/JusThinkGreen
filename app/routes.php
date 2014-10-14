@@ -13,7 +13,7 @@
 
 
 Route::get('/','HomeController@home');
-Route::resource('publicaciones', 'ControlPublicaciones');
+Route::resource('posts','PostController');
 //REGISTRO
 Route::get('registrar','UserController@create');
 Route::post('registrar','UserController@store');

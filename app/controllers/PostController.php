@@ -26,7 +26,7 @@ class PostController extends \BaseController {
 
 	public function create()
 	{
-		if(!Auth::check())
+		if(Auth::check())
 		{
 			return View::make('post.create');
 		}else{
@@ -42,11 +42,10 @@ class PostController extends \BaseController {
 		{
 			return Redirect::Back()->withInput()->withErrors($validation->messages());
 		}
-		$user = User::find(1);
 		$post = new Post;
 		$post->title = Input::get('title');
 		$post->content_text = Input::get('content_text');
-		$post->user_id = $user->id;
+		$post->user_id = Auth::user()->id;
 		$post->point = 0;
 		$post->save();
 		return Redirect::route('post.index');
