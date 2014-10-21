@@ -1,6 +1,9 @@
 @extends('base')
 
 @section('content')	
+
+{{ HTML::script('packages/ckeditor/ckeditor/ckeditor.js') }}
+
 {{ Form::open(['route' => 'post.store']) }}
 
 	<div style="text-align: center">
@@ -21,7 +24,16 @@
 	<br>
 		{{Form::Label('labContent', 'Contenido: ')}}
 	</br>
-		{{Form::TextArea('content_text')}}
+
+		{{Form::Textarea('content_text')}}
+		<script>
+
+			$content = CKEDITOR.replace( 'content_text', {
+				height: 350,
+			});
+
+			$editor_data = CKEDITOR.instances.content_text.getData();
+		</script>	
 		{{$errors->first('content_text', 'Contenido requerido')}}	
 	</div>
 	

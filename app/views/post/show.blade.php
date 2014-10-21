@@ -19,7 +19,7 @@
 	<br>
 		{{Form::Label('labContent', 'Contenido: ')}}
 	</br>
-		{{Form::label($post->content_text)}}
+		{{$post->content_text}}
 	</div>
 
 </body>
