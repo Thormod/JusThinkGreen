@@ -1,27 +1,25 @@
 @extends('base')
 
 @section('content')
+
 <body>
-	<div style="text-align: center">
-	<br>
-	<br>
-	<title>Detalle publicacion</title>
-	<h1 style="text-align: center"> Contenido de publicacion </h1>
-	<br>
-		{{Form::Label('labTitle', 'Titulo: ')}}
-	</br>
-		{{Form::Label($post->title)}}
-	</br>
-	</br>
-	</div>
+	<br><br><br><br>
+	<div class="panel panel-default" style="text-align: center; width:auto; max-width:1200px; margin:auto">
+		  <div class="panel-heading">
+		    <h3 class="panel-title">{{Form::Label($post->title)}}
+		    </h3>
+		  </div>
+		
+		<div style="text-align: center">
+		</div>
 
-	<div  style="text-align: center">
-	<br>
-		{{Form::Label('labContent', 'Contenido: ')}}
-	</br>
-		{{$post->content_text}}
+		<div  style="text-align: center">
+		<br>
+			{{Form::Label('labContent', 'Contenido: ')}}
+		</br>
+			{{$post->content_text}}
+		</div>
 	</div>
-
 </body>
 @stop
 
