@@ -16,9 +16,9 @@ class PostController extends \BaseController {
 	public function show($id)
 	{
 		$post = Post::find($id);
-
+		$user = User::find($post->user_id);
 		if($post){
-			return View::make('post.show', ['post'=>$post]);
+			return View::make('post.show', ['post'=>$post, 'user'=>$user]);
 		}else{
 			return "Publicacion no existe";
 		}
