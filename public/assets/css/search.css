@@ -1,0 +1,27 @@
+/*********************** FONTS ***********************/
+@import url(http://fonts.googleapis.com/css?family=Oswald);
+/*********************** /FONTS ***********************/
+
+
+.body2 {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    background-color: white;
+    -webkit-font-smoothing: antialiased;
+    -webkit-overflow-scrolling: touch;
+}
+
+.opciones {
+    float: center;
+	background-color: white;
+    width: 500px;
+    height: 150px;
+
+}
+
+.resultado {
+	background-color: blue;
+	width: 1200px;
+	height: 500px;
+}

@@ -13,6 +13,8 @@
         <div class="navbar-collapse collapse">
           <ul class="nav navbar-nav navbar-right">
             <li><a href="{{ URL::to('/') }}">Inicio</a></li>
+            <li><a href="{{ URL::to('/post') }}">Publicaciones</a></li>
+            <li><a href="{{ URL::to('/busqueda') }}">Busqueda</a></li>
             <li><a href="#">Categorias</a></li>
             <li><a href="#">Rankings</a></li>
             <li><a href="#">Tienda</a></li>

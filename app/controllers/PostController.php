@@ -51,4 +51,8 @@ class PostController extends \BaseController {
 		return Redirect::route('post.index');
 	}
 
+	public function search()
+	{
+		return View::Make('post.search');
+	}
 }

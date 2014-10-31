@@ -14,6 +14,9 @@
 
 Route::get('/','HomeController@home');
 Route::resource('posts','PostController');
+
+Route::get('busqueda', 'PostController@search');
+
 //REGISTRO
 Route::get('registrar','UserController@create');
 Route::post('registrar','UserController@store');
