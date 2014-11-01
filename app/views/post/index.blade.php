@@ -1,52 +1,31 @@
 @extends('base')
 
-@section('content')
 <head>
-
-	<style>
-
-
-	li{
-		list-style: none;
-	}
-
-	#publicacion{
-		padding:30px;
-		background: lightgreen;
-		border: 2px solid black;
-		width: 500px;
-		height: 100px;	
-		margin-left: 30px;	
-	}
-	#publicacion a{
-		text-decoration: none;
-	}
-
-	</style>
-</head>
-
-
-
-<body>
-	<br></br>
-	<title>Publicaciones</title>
-	<h1 style="text-align: center"> Lista de Publicaciones </h1>
-
+<br><br><br>
+<div>
+	<div style="text-align: center; color: white; font-size: 30px;">
+		Mejores Publicaciones
+	</div>
+	
 	@foreach ($posts as $post)
-	<br></br>
-		<ul>
-
-			<li><div id=publicacion>
-				
-				<a>Titulo: {{link_to("/post/{$post->id}",$post->title)}}</a>
-				<br></br>
-				<a>Calificación promedio: {{$post->point}} 
-										  - Fecha de creación: {{$post->created_at}}</a>
-			</div></li>	
-		</ul>	
+	<br>
+		<div style="max-width:900px; margin: auto;">
+		  <div class="panel panel-success">
+		  	<div class="panel-heading">
+		  		{{$post->title}}
+		  	</div>
+		  	<div class="panel-body">
+		  		{{strip_tags(str_limit($post->content_text, 1500));}}
+		  	</div>
+		  	<div class="panel-footer" style="text-align: right;">
+		    	Fecha de creación: {{$post->created_at}}, 
+		    	Puntuación: {{$post->point}},
+		    	<a href="/post/{{$post->id}}" class="btn btn-default" role="button">Ver publicación</a>
+		    	
+		  	</div>
+		  </div>
+		</div>
 	@endforeach
+</div>
 
 </body>
-
-@stop
-
