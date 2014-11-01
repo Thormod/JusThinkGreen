@@ -58,7 +58,10 @@ class UserController extends BaseController{
 	public function show($id)
 	{
 		$user = User::find($id);
-		return View::make('user.show', ['user' => $user]);
+		$user_profile = UserProfile::find($id);
+		$posts = Post::where('user_id', '=', $id)->orderBy('point')->take(5)->get();
+
+		return View::make('user.show', ['user' => $user, 'userProfile' => $user_profile, 'posts' => $posts]);
 	}
 
 }

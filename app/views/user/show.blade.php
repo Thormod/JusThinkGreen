@@ -2,17 +2,34 @@
 <br><br><br>
 
 
-<div class="container-fluid" style="background-color: white; margin:50px">
-	<div class="row; row; col-md-2">
-	  <ul class="list-group" style="max-width: 350px;">
-		  <li class="list-group-item">Cras fsdfsdfsdto odio</li>
-		  <li class=	"list-group-item">Dapibus ac facilisis in</li>
-		  <li class="list-group-item">Morbi leo risus</li>
-		  <li class="list-group-item">Porta ac consectetur ac</li>
-		  <li class="list-group-item">Vestibulum at eros</li>
-		</ul>
+<div class="container-fluid" style="max-width:1200px; background-color: white; margin:auto">
+	<div class="row; col-md-3" style="height: 700px; margin: auto;">
+	<br>
+		<div >
+		  <div class="panel panel-default">
+		  	<div class="panel-heading">
+		  		Datos de usuario
+		  	</div>
+		  	<div class="panel-body">
+		  		
+		  	</div>
+		  	<ul class="list-group">
+				  <li class="list-group-item">Nombre:</li>
+				  <li class="list-group-item">Apellidos: </li>
+				  <li class="list-group-item">Fecha de nacimiento: </li>
+				  </ul>
 
-		<div class>
+			@if($user->id==Auth::User()->id)
+			  	<div class="panel-footer" style="text-align: center">
+			  		{{ Form::open(array('url' => 'user/edit')); }}
+    				{{ Form::submit('Editar datos personales');}}
+					{{ Form::close() }}
+			  	</div>
+			@endif
+		  </div>
+		</div>
+
+		<div>
 		  <div class="panel panel-default">
 		  	<div class="panel-heading">
 		  		Logros
@@ -22,53 +39,37 @@
 		  	</div>
 		  </div>
 		</div>
-		
+
+		<div>
+		  <div class="panel panel-default">
+		  	<div class="panel-heading">
+		  		Puntos
+		  	</div>
+		  	<div class="panel-body">
+		  		Puntos
+		  	</div>
+		  </div>
+		</div>
 	</div>
 	
-	<div class="row; col-md-8" style="text-align: center">
+	<div class="row; col-md-8" style="text-align: center; text-co;">
 		Mejores Publicaciones
 	</div>
+	
+	@foreach ($posts as $post)
+		<div class="row; col-md-8" style="max-width:800px; margin: auto;">
+		  <div class="panel panel-success">
+		  	<div class="panel-heading">
+		  		{{$post->title}}
+		  	</div>
+		  	<div class="panel-body">
+		  		{{strip_tags(str_limit($post->content_text, 1500));}}
+		  	</div>
+		  	<div class="panel-footer" style="text-align: right">
+		    	Puntuación: {{$post->point}} <a href="/post/{{$post->id}}" class="btn btn-default" role="button">Ver publicación</a>
+		  	</div>
+		  </div>
+		</div>
 
-	<div class="row; col-md-8">
-	  <div class="panel panel-default">
-	  	<div class="panel-heading">
-	  		test
-	  	</div>
-	  	<div class="panel-body">
-	  		body
-	  	</div>
-	  </div>
-	</div>
-
-	<div class="row; col-md-8">
-	  <div class="panel panel-default">
-	  	<div class="panel-heading">
-	  		test
-	  	</div>
-	  	<div class="panel-body">
-	  		body
-	  	</div>
-	  </div>
-	</div>
-	<div class="row; col-md-8">
-	  <div class="panel panel-default">
-	  	<div class="panel-heading">
-	  		test
-	  	</div>
-	  	<div class="panel-body">
-	  		body
-	  	</div>
-	  </div>
-	</div>
-	<div class="row; col-md-8">
-	  <div class="panel panel-default">
-	  	<div class="panel-heading">
-	  		test
-	  	</div>
-	  	<div class="panel-body">
-	  		body
-	  	</div>
-	  </div>
-	</div>
-
+	@endforeach
 </div>
