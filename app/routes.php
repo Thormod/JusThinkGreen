@@ -15,7 +15,11 @@
 Route::get('/','HomeController@home');
 Route::resource('posts','PostController');
 
+//Busqueda publicaciones
 Route::get('busqueda', 'PostController@search');
+
+//User profile
+Route::get('user/{user}', 'UserController@show');
 
 //REGISTRO
 Route::get('registrar','UserController@create');

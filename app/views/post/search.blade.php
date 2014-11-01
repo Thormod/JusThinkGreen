@@ -1,6 +1,5 @@
 @extends('base')
 
-@section('content')
 
 {{ HTML::style('assets/css/search.css') }}
 <br><br><br>
