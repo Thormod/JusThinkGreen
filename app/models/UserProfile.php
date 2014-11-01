@@ -17,6 +17,8 @@ class UserProfile extends Eloquent implements UserInterface, RemindableInterface
 
 	protected $table = 'user_profile';
 
+	public $timestamps = false;
+
 	/**
 	 * The attributes excluded from the model's JSON form.
 	 *

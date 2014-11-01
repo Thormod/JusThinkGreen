@@ -42,6 +42,11 @@ class UserController extends BaseController{
 		$user->password=Hash::make(Input::get('password'));
 		$user->save();
 
+		$userProfile = new UserProfile();
+		$userProfile->id = $user->id;
+		$userProfile->user_id = $user->id;
+		$userProfile->save();
+
 	return Redirect::to('registrar')->with('success', 'Te has registrado exitosamente.');
 	}
 	public function login_index(){
