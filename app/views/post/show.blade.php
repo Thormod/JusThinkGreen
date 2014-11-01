@@ -4,9 +4,9 @@
 
 <body>
 	<br><br><br><br>
-	<div class="panel panel-default" style="text-align: center; width:auto; max-width:1200px; margin:auto">
+	<div class="panel panel-default" style="width:auto; max-width:1200px; margin:auto">
 		<div class="panel-heading">
-		  <h3 class="panel-title">{{Form::Label($post->title)}}
+		  <h3 class="panel-title" style="text-align: center;">{{Form::Label($post->title)}}
 		  </h3>
 		</div>
 		
