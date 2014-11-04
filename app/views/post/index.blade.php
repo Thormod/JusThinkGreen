@@ -18,8 +18,8 @@
 		  		{{strip_tags(str_limit($post->content_text, 1500));}}
 		  	</div>
 		  	<div class="panel-footer" style="text-align: right;">
-		    	Fecha de creación: {{$post->created_at}}, 
-		    	Puntuación: {{$post->point}},
+		    	Fecha de creación: {{$post->created_at}} &nbsp; &nbsp; 
+		    	Puntuación: {{$post->point}} &nbsp; &nbsp;
 		    	<a href="/post/{{$post->id}}" class="btn btn-default" role="button">Ver publicación</a>
 		    	
 		  	</div>
