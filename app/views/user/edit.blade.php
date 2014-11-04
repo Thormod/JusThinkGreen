@@ -6,11 +6,13 @@
 	<div class='panel-body'>
 		<div class="input-group">
 		  <span class="input-group-addon test">Nombre</span>
-		  	{{ Form::Text('firstName', Input::old('firstName'), array('class' => 'form-control')) }}
+		  	{{ Form::Text('first_name', Input::old('first_name'), array('class' => 'form-control')) }}
+		  	{{$errors->first('first_name', 'Maximo 16 caracteres')}}
 		  </div>
 		<div class="input-group">
 		  <span class="input-group-addon">Apellidos</span>
-		  	{{ Form::Text('lastName', Input::old('lastName'), array('class' => 'form-control')) }}
+		  	{{ Form::Text('last_name', Input::old('last_name'), array('class' => 'form-control')) }}
+		  	{{$errors->first('last_name', 'Maximo 20 caracteres')}}
 		</div>
 	</div>
 	{{Form::submit('Editar')}}

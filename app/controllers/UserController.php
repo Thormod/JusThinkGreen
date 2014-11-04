@@ -92,12 +92,12 @@ class UserController extends BaseController{
 
 			if($validation->fails())
 			{
-				return Redirect::Back()->withInput()->withErrors($validation->messages());
+				return Redirect::Back()->withInput()->withErrors($validation);
 			}
 
 			$profile = UserProfile::find(Auth::User()->id);
-			$profile->first_name = Input::get('firstName');
-			$profile->last_name = Input::get('lastName');
+			$profile->first_name = Input::get('first_name');
+			$profile->last_name = Input::get('last_name');
 			$profile->save();
 			return Redirect::to(("user/{$profile->id}"));
 		}else{
