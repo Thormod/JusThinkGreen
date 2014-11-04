@@ -53,19 +53,14 @@
 		  <div class="panel panel-default">
 		  	<div class="panel-heading">
 		  		Datos de usuario:
-		  		{{$user->username}}
 		  	</div>
 		  	<div class="panel-body">
 		  		
 		  	</div>
-
 		  	<ul class="list-group">
-				  <li class="list-group-item">Nombre:
-				  	<br> {{$userProfile->first_name}}
-				  </li>
-				  <li class="list-group-item">Apellidos: 
-				  	<br>{{$userProfile->last_name}}
-				  </li>
+				  <li class="list-group-item">Nombre:</li>
+				  <li class="list-group-item">Apellidos: </li>
+				  <li class="list-group-item">Fecha de nacimiento: </li>
 				  </ul>
 
 			@if($user->id==Auth::User()->id)
@@ -74,12 +69,6 @@
     				{{ Form::submit('Editar datos personales' , array('class' => 'btn smooth-scroll'));}}
 					{{ Form::close() }}
 			  	</div>
-			@if(Auth::check())
-				@if($user->id==Auth::User()->id)
-				  	<div class="panel-footer" style="text-align: center">
-				  		<a href="/user/profile/edit" class="btn btn-primary" role="button">Editar datos personales</a> 
-				  	</div>
-				@endif
 			@endif
 		  </div>
 		</div>
@@ -101,7 +90,7 @@
 		  		Puntos
 		  	</div>
 		  	<div class="panel-body">
-		  		{{$userProfile->points}}
+		  		Puntos
 		  	</div>
 		  </div>
 		</div>
