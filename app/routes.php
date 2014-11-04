@@ -23,11 +23,7 @@ Route::post('publicar','PostController@store');
 Route::get('busqueda', 'PostController@search');
 
 //User profile
-
 Route::get('user', 'UserController@show');
-Route::get('user/profile/edit', 'UserController@edit');
-Route::post('user/profile/edit', array('as' => 'user.storeProfile', 'uses' => 'UserController@storeProfile'));
-
 
 //REGISTRO
 Route::get('registrar','UserController@create');
@@ -42,6 +38,7 @@ Route::get('logout', 'UserController@logout');
 
 
 //PAGE
+Route::match(array('GET', 'POST'),'search', array('as' => 'searchAll', 'uses' => 'SearchController@searchAll'));
 Route::get('contacto', 'HomeController@contact');
 Route::get('about', 'HomeController@about');
 Route::resource('post', 'PostController');

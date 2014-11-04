@@ -59,6 +59,7 @@ class UserController extends BaseController{
 	{
 		if(Auth::check())
 		{
+			
 		$id = Auth::user()->id;
 		$user = User::find($id);
 		$user_profile = UserProfile::find($id);

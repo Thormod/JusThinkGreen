@@ -1,12 +1,12 @@
 		<div id="menu" class="menu-right">
 			<ul>
-				<form class="menu-search" >
-					<div class="form-group header">
-						<i class="icon-search searchico"></i>
-						<input type="text" placeholder="Búsqueda...">
-						<a href="#" class="close-menu"><i class="icon-close"></i></a>
-					</div>
-				</form>
+				
+			
+						{{ Form::open(array('route' => 'searchAll', 'class' => 'menu-search', 'role' => 'search', 'id' => 'frm_searchbar')) }}
+							    <div class="form-group header">
+							        {{ Form::text('criteria', Input::old('criteria'), array('class' => 'form-control', 'placeholder' => 'Búsqueda...','id' => 'criteria')) }}
+							    </div>
+							    {{ Form::close() }}
 				@if(Auth::check())
 				
 				<li><a href="{{ URL::to('user') }}"><i class="fa fa-smile-o"></i></i>Mi perfil</a></li>

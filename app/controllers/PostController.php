@@ -44,11 +44,14 @@ class PostController extends \BaseController {
 		}
 		$post = new Post;
 		$post->title = Input::get('title');
+		$post->description = Input::get('description');
 		$post->content_text = Input::get('content_text');
 		$post->user_id = Auth::user()->id;
 		$post->point = 0;
+		$post->status = 1;
 		$post->save();
-		return Redirect::route('post.index');
+
+		return Redirect::to('/');
 	}
 
 	public function search()

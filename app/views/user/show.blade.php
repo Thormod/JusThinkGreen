@@ -6,7 +6,7 @@
 			<div id="main-nav" class="">
 				<div class="container">
 					<div class="nav-header">
-							<a class="btn btn-blog outline-white" href="#">Inicio</a>
+							<a class="btn btn-blog outline-white" href="{{URL::to('/')}}">Inicio</a>
 							<a class="menu-link nav-icon" href="{{URL::to('/')}}"><span class="glyphicon glyphicon-th" style="margin-left: 20px;"></span></a>
 							@if(!Auth::check())
 							<a class="btn btn-blog outline-white pull-right" href="{{  URL::to('login_index') }}" >Login</a>
