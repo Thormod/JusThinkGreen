@@ -45,6 +45,7 @@ class UserController extends BaseController{
 		$userProfile = new UserProfile();
 		$userProfile->id = $user->id;
 		$userProfile->user_id = $user->id;
+		$userProfile->points = 0;
 		$userProfile->save();
 
 	return Redirect::to('registrar')->with('success', 'Te has registrado exitosamente.');
@@ -58,10 +59,50 @@ class UserController extends BaseController{
 	public function show($id)
 	{
 		$user = User::find($id);
-		$user_profile = UserProfile::find($id);
-		$posts = Post::where('user_id', '=', $id)->orderBy('point')->take(5)->get();
+	
+		if($user){
+			$user_profile = UserProfile::find($id);
+			$posts = Post::where('user_id', '=', $id)->orderBy('point')->take(5)->get();
 
-		return View::make('user.show', ['user' => $user, 'userProfile' => $user_profile, 'posts' => $posts]);
+			return View::make('user.show', ['user' => $user, 'userProfile' => $user_profile, 'posts' => $posts]);
+		}
+		return 404;
+	}
+
+	
+	public function edit()
+	{
+
+		if(Auth::check())
+		{
+			$profile = UserProfile::find(Auth::User()->id);
+			return View::make('user.edit', ['profile' => $profile]);
+		}else{
+			return Redirect::to('login_index');
+		}
+	}
+
+	public function storeProfile()
+	{
+
+
+		if(Auth::check())
+		{
+			$validation = Validator::make(Input::all(), UserProfile::$rules);
+
+			if($validation->fails())
+			{
+				return Redirect::Back()->withInput()->withErrors($validation->messages());
+			}
+
+			$profile = UserProfile::find(Auth::User()->id);
+			$profile->first_name = Input::get('firstName');
+			$profile->last_name = Input::get('lastName');
+			$profile->save();
+			return Redirect::to(("user/{$profile->id}"));
+		}else{
+			return Redirect::to('login_index');
+		}
 	}
 
 }

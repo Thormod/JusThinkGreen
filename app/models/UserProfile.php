@@ -17,6 +17,11 @@ class UserProfile extends Eloquent implements UserInterface, RemindableInterface
 
 	protected $table = 'user_profile';
 
+	public static $rules = array(
+        'first_name' => array('max:16'),
+        'last_name' => array('max:16'),
+    );
+
 	public $timestamps = false;
 
 	/**

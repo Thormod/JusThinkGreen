@@ -20,6 +20,8 @@ Route::get('busqueda', 'PostController@search');
 
 //User profile
 Route::get('user/{user}', 'UserController@show');
+Route::get('user/profile/edit', 'UserController@edit');
+Route::post('user/profile/edit', array('as' => 'user.storeProfile', 'uses' => 'UserController@storeProfile'));
 
 //REGISTRO
 Route::get('registrar','UserController@create');
