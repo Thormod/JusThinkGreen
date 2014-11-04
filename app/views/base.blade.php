@@ -14,12 +14,14 @@
 
        {{ HTML::style('assets/lib/bootstrap/css/bootstrap.min.css') }}
        {{ HTML::style('assets/css/global.css') }}
+       {{ HTML::style('assets/css/font-awesome-4.1.0/css/font-awesome.css')}}
+       {{ HTML::style('assets/css/font-awesome-4.1.0/css/font-awesome.min.css')}}
        @section('css')
        @show
 
       </head>
       <body style="">
-       @include('header')
+
       
 
 
@@ -27,10 +29,17 @@
 @endif
 
         @yield('content')
+        
 
 @if(!Request::ajax())
-
+      
       </div>
+      
+    <script type="text/javascript" src="assets/js/jquery-1.9.1.min.js"></script>
+
+    <script type="text/javascript" src="assets/js/wow.min.js"></script>
+    <script type="text/javascript" src="assets/js/custom.js"></script>
+    <script type="text/javascript" src="assets/js/ga.js"></script>
 
     </body>
     </html>

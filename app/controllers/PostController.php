@@ -28,9 +28,9 @@ class PostController extends \BaseController {
 	{
 		if(Auth::check())
 		{
-			return View::make('post.create');
+			return View::make('post.create')->with('tab','publicar');
 		}else{
-			return "Iniciar sesión para poder crear una publicacion";
+			return View::make('error')->with('tab','error');
 		}
 	}
 

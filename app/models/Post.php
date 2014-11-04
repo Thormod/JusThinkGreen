@@ -17,6 +17,7 @@ class Post extends Eloquent implements UserInterface, RemindableInterface {
 
 	public static $rules = [
 	'title' => 'required',
+	'description' => 'required',
 	'content_text' => 'required',
 	];
 

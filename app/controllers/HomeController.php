@@ -18,6 +18,12 @@ class HomeController extends BaseController {
 	public function home(){
 		return View::make('home', array('tab' => 'homr') );
 	}
+	public function contact(){
+		return View::make('contact', array('tab' => 'contact') );
+	}
+	public function about(){
+		return View::make('about', array('tab' => 'about') );
+	}
 
 
 }

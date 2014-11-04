@@ -1,14 +1,58 @@
 @extends('base')
-<br><br><br>
+
+@section('content')
+		@include('layouts.menu')
+		<div id="wrap">
+			<div id="main-nav" class="">
+				<div class="container">
+					<div class="nav-header">
+							<a class="btn btn-blog outline-white" href="#">Inicio</a>
+							<a class="menu-link nav-icon" href="{{URL::to('/')}}"><span class="glyphicon glyphicon-th" style="margin-left: 20px;"></span></a>
+							@if(!Auth::check())
+							<a class="btn btn-blog outline-white pull-right" href="{{  URL::to('login_index') }}" >Login</a>
+							@else
+							<a class="btn btn-blog outline-white pull-right" href="{{  URL::to('logout') }}" >Logout</a>
+							@endif
+						</div>
+				</div>
+			</div>
+			<section id="hero" class="light-typo">
+
+	        <div id="cover-image" class="image-bg animated fadeIn"></div>
+	        <div class="container welcome-content">
+	          <div class="middle-text">
+	            <img class="bordered img-circle" alt="" src="img/author-sing.jpg" height="96" width="96">
+						<h2><b>{{Auth::user()->username}}</b></h2>
+						<p>If rubbin' frozen dirt in your crotch is wrong, hey I don't wanna be right.<br>You can follow her on ...</p>
+					 	<ul class="social-links outline-white">
+							<li><a href="#link"><i class="fa fa-twitter"></i></a></li>
+								<li><a href="#link"><i class="fa fa-facebook"></i></a></li>
+								<li><a href="#link"><i class="fa fa-google-plus"></i></a></li>
+						</ul>
+	          </div>
+	        </div>       
+	       </section>
+	       	<section id="breadcrumb">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12">
+							<ol class="breadcrumb">
+								<li><a href="{{URL::to('/')}}">Inicio</a></li>
+								<li class="active">Perfil / {{Auth::user()->username}}</li>
+							</ol>
+						</div>
+					</div>
+				</div>
+			</section>
 
 
-<div class="container-fluid" style="max-width:1200px; background-color: black; margin:auto">
+<div class="container-fluid" style="max-width:1200px; margin:auto">
 	<div class="row; col-md-3" style="margin: auto;">
 	<br><br>
 		<div >
 		  <div class="panel panel-default">
 		  	<div class="panel-heading">
-		  		Datos de usuario
+		  		Datos de usuario:
 		  	</div>
 		  	<div class="panel-body">
 		  		
@@ -22,7 +66,7 @@
 			@if($user->id==Auth::User()->id)
 			  	<div class="panel-footer" style="text-align: center">
 			  		{{ Form::open(array('url' => 'user/edit')); }}
-    				{{ Form::submit('Editar datos personales');}}
+    				{{ Form::submit('Editar datos personales' , array('class' => 'btn smooth-scroll'));}}
 					{{ Form::close() }}
 			  	</div>
 			@endif
@@ -58,19 +102,19 @@
 		</div>
 		
 		@foreach ($posts as $post)
-			<div style="max-width:800px; margin: auto;">
-			  <div class="panel panel-success">
-			  	<div class="panel-heading">
-			  		{{$post->title}}
-			  	</div>
-			  	<div class="panel-body">
-			  		{{strip_tags(str_limit($post->content_text, 1500));}}
-			  	</div>
-			  	<div class="panel-footer" style="text-align: right">
-			    	Puntuación: {{$post->point}} <a href="/post/{{$post->id}}" class="btn btn-default" role="button">Ver publicación</a>
-			  	</div>
-			  </div>
-			</div>
+			@include('post.post-short-view',array('post' => $post))
 		@endforeach
+		</div>
 	</div>
-</div>
+
+
+			@include('footer')
+		</div>		
+
+		
+	
+	</body>
+</html>
+
+
+@stop

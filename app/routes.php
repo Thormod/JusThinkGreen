@@ -13,13 +13,17 @@
 
 
 Route::get('/','HomeController@home');
-Route::resource('posts','PostController');
+Route::resource('posts','PostController', array('except' =>array('create')));
+
+//POSTS
+Route::get('publicar','PostController@create');
+Route::post('publicar','PostController@store');
 
 //Busqueda publicaciones
 Route::get('busqueda', 'PostController@search');
 
 //User profile
-Route::get('user/{user}', 'UserController@show');
+Route::get('user', 'UserController@show');
 
 //REGISTRO
 Route::get('registrar','UserController@create');
@@ -32,5 +36,9 @@ Route::post('login','UserController@login');
 //LOGOUT
 Route::get('logout', 'UserController@logout');
 
+
+//PAGE
+Route::get('contacto', 'HomeController@contact');
+Route::get('about', 'HomeController@about');
 Route::resource('post', 'PostController');
 

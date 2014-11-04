@@ -1,106 +1,104 @@
-@if(!Request::ajax())
-<!DOCTYPE html>
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <title>
-         @section('title')
-         JusThinkGreen
-         @show
-       </title>
+@extends('base')
 
-	{{ HTML::style('assets/lib/bootstrap/css/bootstrap.min.css') }}
-	{{ HTML::style('assets/css/global.css') }}
-	</head>
-	<body>
-	@include('header')
-
-	<div id="headerwrap">
-	    <div class="container">
-			<div class="row">
-				<div class="col-lg-6 col-lg-offset-3">
-					<img src="assets/img/logo3.png">
-					 @if (Auth::check())
-					 <h3 style="text-transform: uppercase; margin-top: -5px;">Bienvenido <span style="color: #2B6B1C"> {{ Auth::user()->username }} </span></h3>
-					 @else
-					<h3 style="text-transform: uppercase; margin-top: -5px;">¿No estás registrado?</h3>
-					<div class="enjoy-css" onclick="location.href='{{ URL::to('registrar') }}';">Registrate!</div>
-					@endif
-
+@section('content')
+		@include('layouts.menu')
+		<div id="wrap">
+			<div id="main-nav" class="">
+				<div class="container">
+					<div class="nav-header">
+							<a class="btn btn-blog outline-white" href="#">Inicio</a>
+							<a class="menu-link nav-icon" href="#"><span class="glyphicon glyphicon-th" style="margin-left: 20px;"></span></a>
+							@if(!Auth::check())
+							<a class="btn btn-blog outline-white pull-right" href="{{  URL::to('login_index') }}" >Login</a>
+							@else
+							<a class="btn btn-blog outline-white pull-right" href="{{  URL::to('logout') }}" >Logout</a>
+							@endif
+						</div>
 				</div>
 			</div>
-	    </div> 
-	</div>
-	
-	<section id="works"></section>
-	<div class="posts-div">
-	<div class="container" style="padding-top: 30px;">
-		<div class="row centered mt mb">
-			<h1 style="color: #000;">Mejores <span style="color: #2B6B1C"> PUBLICACIONES </span> </h1>
-			
-			<div class="col-lg-4 col-md-4 col-sm-4 gallery">
-				<div class="box">
-				    <div class="cover left">
-				      <h1 class="title">Example Post Title <span style="color: #2B6B1C"> 1587589p </span></h1>
+					
+			<section id="hero" class="light-typo">
+				<div id="cover-image" class="image-bg animated fadeIn"></div>
+				<div class="container welcome-content">
+					<div class="middle-text">
+						<img src="assets/img/logo3.png">
+						@if(!Auth::check())
+						<h2><b>Bienvenidos</b> a la primera red social ambiental</h2>
+						@else
+						<h2><b>Bienvenid@,</b> {{Auth::user()->username}}</h2>
+						@endif
+						<a class="btn smooth-scroll" href="#start">Ver más</a>
+					</div>
+				</div>
+			</section>
+				<section id="breadcrumb">
+				<div class="container">
+					<div class="row">
+						<div class="col-md-12">
+							<ol class="breadcrumb">
+								<li><a href="{{URL::to('/')}}">Inicio</a></li>
+							</ol>
+						</div>
+					</div>
+				</div>
+			</section>
 
-				      <p class="intro">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium quis enim nam dolorem recusandae ducimus laudantium iure sint similique reiciendis quaerat dolorum cum aliquid officiis repudiandae in qui itaque maiores!</p>
-				      <div class="btn"><a href="#">Read more...</a></div>
-				    </div>
-				  </div>
-			</div>
-			<div class="col-lg-4 col-md-4 col-sm-4 gallery">
-				<div class="box">
-				    <div class="cover left">
-				     <h1 class="title">Example Post Title <span style="color: #2B6B1C"> 1587589p </span></h1>
+			<div id="start" class="container content">
+				<div class="row">
+					<div class="col-md-10 col-md-offset-1">
+						<article class="clearfix">
+							<div class="post-date">
+								May 26, 2014 | <a href="">Melissa Sing </a> <span><a href="">11 Comments</a></span>
+							</div>		
+							<h2><a href="post-typography.html">We don't have a brig</a></h2>
+							<p>Use this resource to highlight the points of interest of your products. Just a click to open a brief description of each point, allowing your user to get a deep and fast understanding of your product features. <a class="" href="post-typography.html">Read more</a>
+							</p>
+						</article>
+						<article class="clearfix">
+							<div class="post-date">
+								May 26, 2014 | <a href="">Melissa Sing </a> <span><a href="">42 Comments</a></span>
+							</div>		
+							<h2><a href="post-image.html">Every other day it's food, food, food.</a></h2>
+							<p>I suppose I could part with 'one' and still be feared… I don't 'need' to drink. I can quit anytime I want! Oh, I think we should just stay friends. Noooooo! Five hours? Aw, man! Couldn't you just get me the death penalty? <a class="" href="post-image.html">Read more</a>
+							</p>
+						</article>
+						<article class="clearfix">
+							<div class="post-date">
+								May 12, 2014 | <a href="">Melissa Sing </a> <span><a href="">2 Comments</a></span>
+							</div>		
+							<h2><a href="post-audio.html">Ah, now the ball's in Farnsworth's court!</a></h2>
+							<p>Bender, hurry! This fuel's expensive! Also, we're dying! Fry, we have a crate to deliver. In your time, yes, but nowadays shut up! Besides, these are adult stemcells, harvested from perfectly healthy adults whom I killed for their stemcells. This is the worst part. The calm before the battle. <a class="" href="post-audio.html">Read more</a>
+							</p>
+						</article>
+						<article class="clearfix last">
+							<div class="post-date">
+								May 10, 2014 | <a href="">Melissa Sing </a> <span><a href="">23 Comments</a></span>
+							</div>		
+							<h2><a href="post-video.html">But I've never been to the moon!</a></h2>
+							<p>But I've never been to the moon! I found what I need. And it's not friends, it's things. Can I use the gun? Incidentally, you have a dime up your nose. One hundred dollars. <a class="" href="post-video.html">Read more</a>
+							</p>
+						</article>
 
-				      <p class="intro">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium quis enim nam dolorem recusandae ducimus laudantium iure sint similique reiciendis quaerat dolorum cum aliquid officiis repudiandae in qui itaque maiores!</p>
-				      <div class="btn"><a href="#">Read more...</a></div>
-				    </div>
-				  </div>
-			</div>
-			<div class="col-lg-4 col-md-4 col-sm-4 gallery">
-				<div class="box">
-				    <div class="cover left">
-				     <h1 class="title">Example Post Title <span style="color: #2B6B1C"> 1587589p </span></h1>
+						
 
-				      <p class="intro">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium quis enim nam dolorem recusandae ducimus laudantium iure sint similique reiciendis quaerat dolorum cum aliquid officiis repudiandae in qui itaque maiores!</p>
-				      <div class="btn"><a href="#">Read more...</a></div>
-				    </div>
-				  </div>
-			</div>
-			<div class="col-lg-4 col-md-4 col-sm-4 gallery">
-				<div class="box">
-				    <div class="cover left">
-				    <h1 class="title">Example Post Title <span style="color: #2B6B1C"> 1587589p </span></h1>
+						<div class="paging clearfix">
+							<a class="btn pull-left" href="#"><i class="icon-arrow-left2 left"></i><span>Viejas</span><span class="hidden-xs"> Publicaciones</span></a>
+							<a class="btn pull-right" href="#"><span>Nuevas </span><span class="hidden-xs"> Publicaciones</span><i class="icon-arrow-right2 right"></i></a>
+						</div>
 
-				      <p class="intro">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium quis enim nam dolorem recusandae ducimus laudantium iure sint similique reiciendis quaerat dolorum cum aliquid officiis repudiandae in qui itaque maiores!</p>
-				      <div class="btn"><a href="#">Read more...</a></div>
-				    </div>
-				  </div>
+					</div>	
+				</div><!-- end row -->
 			</div>
-			<div class="col-lg-4 col-md-4 col-sm-4 gallery">
-				<div class="box">
-				    <div class="cover left">
-				      <h1 class="title">Example Post Title <span style="color: #2B6B1C"> 1587589p </span></h1>
+				
 
-				      <p class="intro">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium quis enim nam dolorem recusandae ducimus laudantium iure sint similique reiciendis quaerat dolorum cum aliquid officiis repudiandae in qui itaque maiores!</p>
-				      <div class="btn"><a href="#">Read more...</a></div>
-				    </div>
-				  </div>
-			</div>
-			<div class="col-lg-4 col-md-4 col-sm-4 gallery">
-				<div class="box">
-				    <div class="cover left">
-				     <h1 class="title">Example Post Title <span style="color: #2B6B1C"> 1587589p </span></h1>
-				      <p class="intro">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Praesentium quis enim nam dolorem recusandae ducimus laudantium iure sint similique reiciendis quaerat dolorum cum aliquid officiis repudiandae in qui itaque maiores!</p>
-				      <div class="btn"><a href="#">Read more...</a></div>
-				    </div>
-				  </div>
-			</div>
-		</div>
-	</div>
-	</div>
+
+				@include('footer')
+		</div>		
+
+		
 	
 	</body>
-@endif
+</html>
+
+
+@stop
