@@ -9,7 +9,7 @@
 							    {{ Form::close() }}
 				@if(Auth::check())
 				
-				<li><a href="{{ URL::to('user') }}"><i class="fa fa-smile-o"></i></i>Mi perfil</a></li>
+				<li><a href="{{ URL::to('user/'.Auth::User()->id) }}"><i class="fa fa-smile-o"></i></i>Mi perfil</a></li>
 				<li><a href="{{ URL::to('publicar') }}"><i class="fa fa-pencil"></i>Publicar</a></li>
 				@else
 				<li><a href="{{  URL::to('login_index')}}"><i class="fa fa-paper-plane"></i>Inicia Sesión</a></li>

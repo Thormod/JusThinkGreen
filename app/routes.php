@@ -23,7 +23,10 @@ Route::post('publicar','PostController@store');
 Route::get('busqueda', 'PostController@search');
 
 //User profile
-Route::get('user', 'UserController@show');
+Route::get('user/{user}', 'UserController@show');
+
+Route::get('profile/edit', 'ProfileController@edit');
+Route::post('profile/edit', array('as' => 'userProfile.storeProfile', 'uses' => 'ProfileController@storeProfile'));
 
 //REGISTRO
 Route::get('registrar','UserController@create');

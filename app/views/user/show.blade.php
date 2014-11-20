@@ -22,7 +22,7 @@
 	        <div class="container welcome-content">
 	          <div class="middle-text">
 	            <img class="bordered img-circle" alt="" src="img/author-sing.jpg" height="96" width="96">
-						<h2><b>{{Auth::user()->username}}</b></h2>
+						<h2><b>{{$user->username}}</b></h2>
 						<p>If rubbin' frozen dirt in your crotch is wrong, hey I don't wanna be right.<br>You can follow her on ...</p>
 					 	<ul class="social-links outline-white">
 							<li><a href="#link"><i class="fa fa-twitter"></i></a></li>
@@ -38,7 +38,7 @@
 						<div class="col-md-12">
 							<ol class="breadcrumb">
 								<li><a href="{{URL::to('/')}}">Inicio</a></li>
-								<li class="active">Perfil / {{Auth::user()->username}}</li>
+								<li class="active">Perfil / {{$user->username}}</li>
 							</ol>
 						</div>
 					</div>
@@ -52,23 +52,22 @@
 		<div >
 		  <div class="panel panel-default">
 		  	<div class="panel-heading">
-		  		Datos de usuario:
+		  		{{$user->username}}
 		  	</div>
 		  	<div class="panel-body">
 		  		
 		  	</div>
 		  	<ul class="list-group">
-				  <li class="list-group-item">Nombre:</li>
-				  <li class="list-group-item">Apellidos: </li>
-				  <li class="list-group-item">Fecha de nacimiento: </li>
+				  <li class="list-group-item"> <br> &nbsp;&nbsp;&nbsp;&nbsp;{{$userProfile->first_name}} </li>
+				  <li class="list-group-item"> <br> &nbsp;&nbsp;&nbsp;&nbsp;{{$userProfile->last_name}} </li>
 				  </ul>
 
-			@if($user->id==Auth::User()->id)
-			  	<div class="panel-footer" style="text-align: center">
-			  		{{ Form::open(array('url' => 'user/edit')); }}
-    				{{ Form::submit('Editar datos personales' , array('class' => 'btn smooth-scroll'));}}
-					{{ Form::close() }}
-			  	</div>
+			@if(Auth::check())
+				@if($user->id==Auth::User()->id)
+				  	<div class="panel-footer" style="text-align: center">
+				  		<a href="../profile/edit" class="btn btn-primary" role="button">Editar datos personales</a> 
+				  	</div>
+				@endif
 			@endif
 		  </div>
 		</div>
@@ -90,7 +89,7 @@
 		  		Puntos
 		  	</div>
 		  	<div class="panel-body">
-		  		Puntos
+		  		{{$userProfile->points}}
 		  	</div>
 		  </div>
 		</div>

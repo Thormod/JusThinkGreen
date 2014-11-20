@@ -55,17 +55,16 @@ class UserController extends BaseController{
 
 	}
 
-	public function show()
+	public function show($id)
 	{
-		if(Auth::check())
-		{
-			
-		$id = Auth::user()->id;
-		$user = User::find($id);
-		$user_profile = UserProfile::find($id);
-		$posts = Post::where('user_id', '=', $id)->orderBy('point')->take(5)->get();
 
-		return View::make('user.show', ['user' => $user, 'userProfile' => $user_profile, 'posts' => $posts]);
+		$user = User::find($id);
+		
+		if($user) {
+
+			$user_profile = UserProfile::find($id);
+			$posts = Post::where('user_id', '=', $id)->orderBy('point')->take(5)->get();
+			return View::make('user.show', ['user' => $user, 'userProfile' => $user_profile, 'posts' => $posts]);
 		}else{
 			return View::make('error')->with('tab','error');
 		}
