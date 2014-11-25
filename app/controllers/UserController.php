@@ -64,6 +64,75 @@ class UserController extends BaseController{
 
 			$user_profile = UserProfile::find($id);
 			$posts = Post::where('user_id', '=', $id)->orderBy('point')->take(5)->get();
+
+			$numposts = Post::where('user_id', '==', $user->id);
+
+			$rate = Like::where('user_id', '==', $user->id)->first();
+
+			//logros
+			// 1 publicacion
+				$pub1 = false;
+				if(sizeof($numposts)>=1)
+				{
+					$pub1 = true;
+				}
+			// 10 publicaciones
+				$pub10 = false;
+				if(sizeof($numposts)>=1)
+				{
+					$pub10 = true;
+				}
+			// 25 publicaciones
+				$pub25 = false;
+				if(sizeof($numposts)>=1)
+				{
+					$pub25 = true;
+				}
+			// 50 publicaciones
+				$pub50 = false;
+				if(sizeof($numposts)>=1)
+				{
+					$pub50 = true;
+				}
+			// 50 puntos
+				$points50 = false;
+				if(($user_profile->points)>=50)
+				{
+					$points50 = true;
+				}
+			// 200 puntos
+				$points200 = false;
+				if(($user_profile->points)>=200)
+				{
+					$points200 = true;
+				}
+			// 500 puntos 
+				$points500 = false;
+				if(($user_profile->points)>=500)
+				{
+					$points500 = true;
+				}
+			// 1000 puntos
+				$points1000 = false;
+				if(($user_profile->points)>=1000)
+				{
+					$points1000 = true;
+				}
+			// Cambiar foto por primera vez
+                $difPic = false;
+                if($user->avatar)
+                {
+                	$difPic = true;
+                }
+			// calificar 1 publicacion
+                $rate = false;
+                if($rate)
+                {
+                	$rate = true;
+                	return 0;
+                }
+
+
 			return View::make('user.show', ['user' => $user, 'userProfile' => $user_profile, 'posts' => $posts]);
 		}else{
 			return View::make('error')->with('tab','error');
