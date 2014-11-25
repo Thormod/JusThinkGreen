@@ -28,6 +28,15 @@ Route::get('user/{user}', 'UserController@show');
 Route::get('profile/edit', 'ProfileController@edit');
 Route::post('profile/edit', array('as' => 'userProfile.storeProfile', 'uses' => 'ProfileController@storeProfile'));
 
+//Rankings
+Route::get('rankings', 'HomeController@rankings');
+
+//Favorites
+Route::get('favoritos', 'FavoriteController@showFavorites');
+//Agregar / remover favoritos
+Route::post('favoritos', 'FavoriteController@addFavorites');
+Route::post('favoritos', 'FavoriteController@removeFavorite');
+
 //REGISTRO
 Route::get('registrar','UserController@create');
 Route::post('registrar','UserController@store');
