@@ -15,8 +15,25 @@ class User extends Eloquent implements UserInterface, RemindableInterface {
         'email' => array('required', 'email', 'unique:users'),
         'password' => array('required', 'min:4', 'confirmed'),
         'password_confirmation' => array('required'),
+        'avatar' => array('max:255'),
     );
     protected $hidden = array('password', 'remember_token');
     protected $fillable = array('username', 'password', 'email');
+
+    public function posts(){
+        return $this->hasMany('Post');
+    }
+
+    public function userProfile(){
+        return $this->has('UserProfile');
+    }
+
+    public function avatar()
+    {
+        if ($this->avatar)
+            return asset("uploads/{$this->id}/avatar/$this->avatar");
+        else
+            return asset("assets/images/just.png");
+    }
 
 }

@@ -24,6 +24,14 @@ class Post extends Eloquent implements UserInterface, RemindableInterface {
 
 	protected $table = 'post';
 
+
+	public function image(){
+        if ($this->image)
+            return asset("uploads/{$this->user->id}/$this->image");
+        else
+            return asset("assets/images/just.png");
+    }
+
 	/**
 	 * The attributes excluded from the model's JSON form.
 	 *

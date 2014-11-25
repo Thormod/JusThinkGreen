@@ -1,104 +1,130 @@
 @extends('base')
 
 @section('content')
-		@include('layouts.menu')
-		<div id="wrap">
-			<div id="main-nav" class="">
-				<div class="container">
-					<div class="nav-header">
-							<a class="btn btn-blog outline-white" href="#">Inicio</a>
-							<a class="menu-link nav-icon" href="#"><span class="glyphicon glyphicon-th" style="margin-left: 20px;"></span></a>
-							@if(!Auth::check())
-							<a class="btn btn-blog outline-white pull-right" href="{{  URL::to('login_index') }}" >Login</a>
-							@else
-							<a class="btn btn-blog outline-white pull-right" href="{{  URL::to('logout') }}" >Logout</a>
-							@endif
-						</div>
-				</div>
-			</div>
-					
-			<section id="hero" class="light-typo">
-				<div id="cover-image" class="image-bg animated fadeIn"></div>
-				<div class="container welcome-content">
-					<div class="middle-text">
-						<img src="assets/img/logo3.png">
-						@if(!Auth::check())
-						<h2><b>Bienvenidos</b> a la primera red social ambiental</h2>
-						@else
-						<h2><b>Bienvenid@,</b> {{Auth::user()->username}}</h2>
-						@endif
-						<a class="btn smooth-scroll" href="#start">Ver más</a>
-					</div>
-				</div>
-			</section>
-				<section id="breadcrumb">
-				<div class="container">
-					<div class="row">
-						<div class="col-md-12">
-							<ol class="breadcrumb">
-								<li><a href="{{URL::to('/')}}">Inicio</a></li>
-							</ol>
-						</div>
-					</div>
-				</div>
-			</section>
 
-			<div id="start" class="container content">
-				<div class="row">
-					<div class="col-md-10 col-md-offset-1">
-						<article class="clearfix">
-							<div class="post-date">
-								May 26, 2014 | <a href="">Melissa Sing </a> <span><a href="">11 Comments</a></span>
-							</div>		
-							<h2><a href="post-typography.html">We don't have a brig</a></h2>
-							<p>Use this resource to highlight the points of interest of your products. Just a click to open a brief description of each point, allowing your user to get a deep and fast understanding of your product features. <a class="" href="post-typography.html">Read more</a>
-							</p>
-						</article>
-						<article class="clearfix">
-							<div class="post-date">
-								May 26, 2014 | <a href="">Melissa Sing </a> <span><a href="">42 Comments</a></span>
-							</div>		
-							<h2><a href="post-image.html">Every other day it's food, food, food.</a></h2>
-							<p>I suppose I could part with 'one' and still be feared… I don't 'need' to drink. I can quit anytime I want! Oh, I think we should just stay friends. Noooooo! Five hours? Aw, man! Couldn't you just get me the death penalty? <a class="" href="post-image.html">Read more</a>
-							</p>
-						</article>
-						<article class="clearfix">
-							<div class="post-date">
-								May 12, 2014 | <a href="">Melissa Sing </a> <span><a href="">2 Comments</a></span>
-							</div>		
-							<h2><a href="post-audio.html">Ah, now the ball's in Farnsworth's court!</a></h2>
-							<p>Bender, hurry! This fuel's expensive! Also, we're dying! Fry, we have a crate to deliver. In your time, yes, but nowadays shut up! Besides, these are adult stemcells, harvested from perfectly healthy adults whom I killed for their stemcells. This is the worst part. The calm before the battle. <a class="" href="post-audio.html">Read more</a>
-							</p>
-						</article>
-						<article class="clearfix last">
-							<div class="post-date">
-								May 10, 2014 | <a href="">Melissa Sing </a> <span><a href="">23 Comments</a></span>
-							</div>		
-							<h2><a href="post-video.html">But I've never been to the moon!</a></h2>
-							<p>But I've never been to the moon! I found what I need. And it's not friends, it's things. Can I use the gun? Incidentally, you have a dime up your nose. One hundred dollars. <a class="" href="post-video.html">Read more</a>
-							</p>
-						</article>
+@if(!Request::ajax())
 
-						
+<!-- Slider -->
+<section id="slider_wrapper" class="slider_wrapper full_page_photo">
+     <div id="main_flexslider" class="flexslider">
+          <ul class="slides">
 
-						<div class="paging clearfix">
-							<a class="btn pull-left" href="#"><i class="icon-arrow-left2 left"></i><span>Viejas</span><span class="hidden-xs"> Publicaciones</span></a>
-							<a class="btn pull-right" href="#"><span>Nuevas </span><span class="hidden-xs"> Publicaciones</span><i class="icon-arrow-right2 right"></i></a>
-						</div>
+               <li class="item" style="background-image: url(assets/images/1.jpg)">
+                    <div class="container">
+                         <div class="carousel-caption">
+                              <h1>¡Bienvenidos a <strong>la primera red social {ambiental}!</strong><br></h1>
+                              
+                              <p class="lead skincolored">Jus<strong>{Think}</strong>Green es una red social <strong>ecológica</strong> e <strong>interactiva</strong>,  enfocada en compartir conocimientos, experiencias y diferentes saberes basados en el mundo ambiental y ecológico.</p>    
+                    </div>
+               </li>
 
-					</div>	
-				</div><!-- end row -->
-			</div>
-				
+               <li class="item" style="background-image: url(assets/images/2.jpg)">
+                    <div class="container">
+                         <div class="carousel-caption">
+                              <h1>¡Ayúdanos a <strong>salvar</strong><br>
+                                   nuestro planeta, a <strong>{pensar}</strong> más <strong style="color: #2d9c29">verde</strong>!</h1>
+                             
+                              <p class="lead skincolored">Encuentra todas las <strong>herramientas</strong> que necesitas para <strong>{salvar}</strong> nuestro hogar.</p>
+                         </div>
+                    </div>
+               </li>
 
+               <li class="item" style="background-image: url(assets/images/3.jpg)">
+                    <div class="container">
+                         <div class="carousel-caption">
+                              <h1 class="skincolored" style=""><strong>¡Únete ahora</strong> es totalmente <strong>grátis!</strong><br>
+                                   ¡Y comienza a <strong>{Salvar}</strong> nuestro <strong>hogar!</strong></h1>
+                             @if (!Auth::check())
+                              <p class="lead">Regístrarte no te tomará más de un momento <a href="{{ URL::to('Registrarse')}}"><strong> ¡Regístrate ahora!</strong></a> </p>
+                              @else
+                              <p class="lead">¡Y tú que ya te has únido <a href="services.html"><strong> Sigue pensando verde!</strong></a> </p>
+                              @endif          
+                         </div>
+                    </div>
+               </li>
 
-				@include('footer')
-		</div>		
+          </ul>
+     </div>
+</section>
 
-		
-	
-	</body>
-</html>
+<!-- /Slider -->
 
+<div class="main">
+     <div class="container">
+  
+          <section class="portfolio_teasers_wrapper">
+               <h2 class="section_header fancy centered">Últimas publicaciones<small>Encuentra temas de tu agrado</small></h2>
+               <div class="portfolio_strict row">
 
+                    <div class="col-sm-4 col-md-4">
+                         <div class="portfolio_item wow animated flipInX"> <a href="portfolio_item.html" data-path-hover="M 180,190 0,158 0,0 180,0 z">
+                              <figure style="background-image:url(assets/images/portfolio/p4.jpg)">
+                                   <svg viewBox="0 0 180 320" preserveAspectRatio="none">
+                                        <path d="M 180,0 0,0 0,0 180,0 z"/>
+                                   </svg>
+                                   <figcaption>
+                                        <p>Description of the project dapibus, tellus ac cursus commodo, mauesris condime ntum nibh, ut fermentum....</p>
+                                        <div class="view_button">View</div>
+                                   </figcaption>
+                              </figure>
+                              </a>
+                              <div class="portfolio_description">
+                                   <h3><a href="portfolio_item.html">The {re}start Project</a></h3>
+                                   <p>Design</p>
+                              </div>
+                         </div>
+                    </div>
+                    
+                    <div class="col-sm-4 col-md-4">
+                         <div class="portfolio_item wow animated flipInX"> <a href="portfolio_item.html" data-path-hover="M 180,190 0,158 0,0 180,0 z">
+                              <figure style="background-image:url(assets/images/portfolio/a5.jpg)">
+                                   <svg viewBox="0 0 180 320" preserveAspectRatio="none">
+                                        <path d="M 180,0 0,0 0,0 180,0 z"/>
+                                   </svg>
+                                   <figcaption>
+                                        <p>Description of the project dapibus, tellus ac cursus commodo, mauesris condime ntum nibh, ut fermentum....</p>
+                                        <div class="view_button">View</div>
+                                   </figcaption>
+                              </figure>
+                              </a>
+                              <div class="portfolio_description">
+                                   <h3><a href="portfolio_item.html">Colorfull iOS Apps</a></h3>
+                                   <p>Development</p>
+                              </div>
+                         </div>
+                    </div>
+                    <div class="col-sm-4 col-md-4">
+                         <div class="portfolio_item wow animated flipInX"> <a href="portfolio_item.html" data-path-hover="M 180,190 0,158 0,0 180,0 z">
+                              <figure style="background-image:url(assets/images/portfolio/p1.jpg)">
+                                   <svg viewBox="0 0 180 320" preserveAspectRatio="none">
+                                        <path d="M 180,0 0,0 0,0 180,0 z"/>
+                                   </svg>
+                                   <figcaption>
+                                        <p>Description of the project dapibus, tellus ac cursus commodo, mauesris condime ntum nibh, ut fermentum....</p>
+                                        <div class="view_button">View</div>
+                                   </figcaption>
+                              </figure>
+                              </a>
+                              <div class="portfolio_description">
+                                   <h3><a href="portfolio_item.html">POETIC Magazine</a></h3>
+                                   <p>Illustrations</p>
+                              </div>
+                         </div>
+                    </div>
+               </div>
+          </section>
+
+          <section class="clients_section wow animated fadeInUp">
+               <h2 class="section_header elegant centered">Patrocinadores:<small> </small></h2>
+               <div class="clients_list"> 
+               <a href="#"><img src="assets/images/clients/exito.png" alt="client"></a> 
+               <a href="#"><img src="assets/images/clients/auces.png" alt="client"></a> 
+               <a href="#"><img src="assets/images/clients/health.png" alt="client"></a> 
+               <a href="#"><img src="assets/images/clients/tienda.png" alt="client"></a> 
+               <a href="#"><img src="assets/images/clients/eps.png" alt="client"></a> </div>
+          </section>
+     </div>
+     
+</div>
+@endif
 @stop

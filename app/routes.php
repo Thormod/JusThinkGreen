@@ -24,6 +24,7 @@ Route::get('busqueda', 'PostController@search');
 
 //User profile
 Route::get('user/{user}', 'UserController@show');
+Route::post('user/changeimage', array('before' => 'auth', 'as' => 'change_image_user_path', 'uses' => 'UserController@changeImage'));
 
 Route::get('profile/edit', 'ProfileController@edit');
 Route::post('profile/edit', array('as' => 'userProfile.storeProfile', 'uses' => 'ProfileController@storeProfile'));
@@ -41,9 +42,16 @@ Route::post('favoritos', 'FavoriteController@removeFavorite');
 Route::get('registrar','UserController@create');
 Route::post('registrar','UserController@store');
 
+Route::get('signUpWithFacebook', 'SocialNetworks@signUpWithFacebook');
+Route::get('signUpWithGoogle', 'SocialNetworks@signUpWithGoogle');
+
 //LOGIN
 Route::get('login_index','UserController@login_index');
 Route::post('login','UserController@login');
+
+
+Route::get('loginWithFacebook', 'SocialNetworks@loginWithFacebook');
+Route::get('loginWithGoogle', 'SocialNetworks@loginWithGoogle');
 
 //LOGOUT
 Route::get('logout', 'UserController@logout');

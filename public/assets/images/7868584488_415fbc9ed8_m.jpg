@@ -1,0 +1,15 @@
+0
+
+HTTP/1.1 304 Not Modified
+Date: Mon, 24 Nov 2014 20:22:35 GMT
+Content-Type: image/jpeg
+Connection: keep-alive
+Expires: Sun, 10 Dec 2023 06:49:28 UTC
+Last-Modified: Mon, 27 Aug 2012 00:37:50 GMT
+Age: 37866
+X-Cache: HIT from photocache908.flickr.bf1.yahoo.com
+X-Cache-Lookup: HIT from photocache908.flickr.bf1.yahoo.com:81
+Via: 1.1 photocache908.flickr.bf1.yahoo.com:81 (squid/2.7.STABLE9)
+
+0
+

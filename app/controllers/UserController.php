@@ -47,7 +47,7 @@ class UserController extends BaseController{
 		$userProfile->user_id = $user->id;
 		$userProfile->save();
 
-	return Redirect::to('registrar')->with('success', 'Te has registrado exitosamente.');
+	return Redirect::to('login_index')->with('success', 'Te has registrado exitosamente.');
 	}
 	public function login_index(){
 
@@ -69,6 +69,41 @@ class UserController extends BaseController{
 			return View::make('error')->with('tab','error');
 		}
 	}
+
+	public function changeImage()
+    {
+
+        if (Input::hasFile('photo')) {
+            $photo = Input::file('photo');
+            
+            Auth::user()->avatar = Auth::user()->id . "." . $photo->getClientOriginalExtension();
+
+            Auth::user()->save();
+
+            $path = "uploads/" . Auth::user()->id;
+
+            if (!File::exists($path)) {
+                File::makeDirectory($path);
+            }
+
+            $path .= "/avatar";
+
+            if (!File::exists($path)) {
+                File::makeDirectory($path);
+            }
+
+            $photo->move($path, Auth::user()->avatar);
+
+            Flash::success('Imagen cambiada correctamente');
+
+        } else {
+            Flash::error('La imagen es obligatoria');
+        }
+
+        return Redirect::back();
+    }
+
+    
 	
 
 
