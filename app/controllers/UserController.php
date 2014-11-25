@@ -129,11 +129,13 @@ class UserController extends BaseController{
                 if($rate)
                 {
                 	$rate = true;
-                	return 0;
                 }
 
 
-			return View::make('user.show', ['user' => $user, 'userProfile' => $user_profile, 'posts' => $posts]);
+			return View::make('user.show', ['user' => $user, 'userProfile' => $user_profile, 'posts' => $posts
+											,'pub1' => $pub1, 'pub10' => $pub10, 'pub25' => $pub25, 'pub50' => $pub50
+											, 'points50' => $points50,'points200' => $points200,'points500' => $points500,'points1000' => $points1000, 
+											, 'difPic' => $difPic, 'rate' => $rate]);
 		}else{
 			return View::make('error')->with('tab','error');
 		}
